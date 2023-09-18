@@ -3,7 +3,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { fontSans, fontMono, fontJost } from "@/config/fonts";
 import type { AppProps } from "next/app";
-import { lightTheme, darkTheme } from "./config/theme";
+// import { lightTheme, darkTheme } from "./config/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

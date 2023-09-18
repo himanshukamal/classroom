@@ -3,7 +3,7 @@ import { Input, Button } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import { fonts } from "../pages/_app";
 
-export default function signin() {
+export default function Signin() {
   const router = useRouter();
   const handleLogin = () => {
     router.push("/home");

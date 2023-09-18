@@ -13,11 +13,16 @@ import {
   ModalFooter,
   Input,
   useDisclosure,
+  Link,
 } from "@nextui-org/react";
 import { ModalHeader, ModalBody } from "@nextui-org/react";
 import { fonts } from "../pages/_app";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { LiaFacebookMessenger } from "react-icons/lia";
+import BottomNav from "../components/BottomNav";
+import Image from "next/image";
+import { useRouter } from "next/router";
+// import { Link } from "@nextui-org/react";
 
 export default function MyClasses() {
   const jostFontStyle = {
@@ -232,66 +237,87 @@ export default function MyClasses() {
 
       <div className="flex flex-wrap gap-4 justify-center mt-8 ">
         {classes.map((classInfo, index) => (
-          <Card
-            key={index}
-            className="max-w-[340px] p-2"
-            style={{ width: "340px" }}
-          >
-            <CardHeader className="justify-between">
-              <div className="flex gap-5">
-                <div className="flex flex-col gap-1 items-start">
-                  <h4
-                    className="text-large font-medium leading-none text-default-600"
-                    style={jostFontStyle}
-                  >
-                    {classInfo.title}
-                  </h4>
-                  <div className="flex items-center gap-2">
-                    <AiOutlineClockCircle
-                      className="text-[#8A8586]"
-                      style={{ color: "#8A8586" }}
-                    />
-                    <h5 className="text-small tracking-tight text-default-400">
-                      {classInfo.date}
-                    </h5>
+          <Link href="/individualClass">
+            <Card
+              key={index}
+              className="max-w-[340px] p-2"
+              style={{ width: "340px" }}
+            >
+              <CardHeader className="justify-between">
+                <div className="flex gap-5">
+                  <div className="flex flex-col gap-1 items-start">
+                    <h4
+                      className="text-large font-medium leading-none text-default-600"
+                      style={jostFontStyle}
+                    >
+                      {classInfo.title}
+                    </h4>
+                    <div className="flex items-center gap-2">
+                      <AiOutlineClockCircle
+                        className="text-[#8A8586]"
+                        style={{ color: "#8A8586" }}
+                      />
+                      <h5 className="text-small tracking-tight text-default-400">
+                        {classInfo.date}
+                      </h5>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </CardHeader>
-            <CardBody className="px-3 py-0 text-small text-default-400">
-              {/* Add class description or content here */}
-            </CardBody>
-            <CardFooter className="flex justify-between">
-              <div className="flex gap-1">
-                {/* <AvatarGroup isBordered radius="sm" size="sm" color="warning">
+              </CardHeader>
+              <CardBody className="px-3 py-0 text-small text-default-400">
+                {/* Add class description or content here */}
+              </CardBody>
+              <CardFooter className="flex justify-between">
+                <div className="flex gap-1">
+                  {/* <AvatarGroup isBordered radius="sm" size="sm" color="warning">
                   {classInfo.attendees.map((attendee, attendeeIndex) => (
                     <Avatar key={attendeeIndex} src={attendee} />
                   ))}
                 </AvatarGroup> */}
-                <AvatarGroup
-                  isBordered
-                  max={3}
-                  total={6}
-                  radius="lg"
-                  color="warning"
-                >
-                  <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-                  <Avatar src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
-                  <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
-                  <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
-                  <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" />
-                  <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
-                </AvatarGroup>
-              </div>
-              <div className="flex">
-                {/* Add any additional information or icons here */}
-                <LiaFacebookMessenger
-                  style={{ color: "#8A8586", fontSize: "20px" }}
-                />
-                <p className="text-default-400 text-small ml-1">3</p>
-              </div>
-            </CardFooter>
-          </Card>
+                  <AvatarGroup
+                    //   isBordered
+                    //   imgProps={{ style: { border: "2px solid #000000" } }}
+                    //   max={3}
+                    total={6}
+                    radius="lg"
+                    color="danger"
+                  >
+                    <Avatar
+                      src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                      style={{ border: "2px solid #FFEAEE" }}
+                    />
+                    <Avatar
+                      src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
+                      style={{ border: "2px solid #FFEAEE" }}
+                    />
+                    <Avatar
+                      src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                      style={{ border: "2px solid #FFEAEE" }}
+                    />
+                    <Avatar
+                      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      style={{ border: "2px solid #FFEAEE" }}
+                    />
+                    <Avatar
+                      src="https://i.pravatar.cc/150?u=a04258114e29026702d"
+                      style={{ border: "2px solid #FFEAEE" }}
+                    />
+                    <Avatar
+                      src="https://i.pravatar.cc/150?u=a04258114e29026708c"
+                      style={{ border: "2px solid #FFEAEE" }}
+                    />
+                  </AvatarGroup>
+                </div>
+                <div className="flex">
+                  {/* Add any additional information or icons here */}
+                  <LiaFacebookMessenger
+                    style={{ color: "#8A8586", fontSize: "20px" }}
+                  />
+                  <p className="text-default-400 text-small ml-1">3</p>
+                </div>
+              </CardFooter>
+            </Card>
+          </Link>
         ))}
       </div>
       {/* Create Class Modal */}
@@ -299,15 +325,24 @@ export default function MyClasses() {
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         isDismissable={false}
-        className="absolute top-1"
+        // className="absolute"
+        placement="auto"
+        className=""
       >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
-                Enter Class Information
+              <ModalHeader className="flex flex-col" style={jostFontStyle}>
+                <Image
+                  src="/createClass.svg"
+                  width="75"
+                  height="75"
+                  alt="create class"
+                  className="self-center"
+                />
+                Create Class
               </ModalHeader>
-              <ModalBody>
+              <ModalBody style={jostFontStyle}>
                 <Input
                   label="Class Name"
                   placeholder="Enter class name"
@@ -323,12 +358,16 @@ export default function MyClasses() {
                   onChange={handleFormChange} // Handle changes for the "time" field
                 />
               </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+              <ModalFooter style={jostFontStyle}>
+                {/* <Button color="danger" variant="light" onPress={onClose}>
                   Close
-                </Button>
-                <Button color="primary" onPress={handleFormSubmit}>
-                  Create
+                </Button> */}
+                <Button
+                  color="danger"
+                  onPress={handleFormSubmit}
+                  className="w-full mt-3 font-bold"
+                >
+                  Create Class
                 </Button>
               </ModalFooter>
             </>

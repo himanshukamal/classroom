@@ -42,7 +42,7 @@ export default function BottomNav() {
           position="fixed"
           color="primary"
           className="md:hidden xl:hidden"
-          style={{ top: "auto", bottom: 0, zIndex: 1000, width: "100%" }}
+          style={{ top: "auto", bottom: 0, zIndex: "20", width: "100%" }}
         >
           <Toolbar style={{ height: "92px" }}>
             {/* <IconButton

@@ -24,7 +24,7 @@ export default function Signin() {
       </div>
 
       {/* Second half */}
-      <div className="flex flex-col w-full bg-white xl:w-[50%] h-screen">
+      <div className="flex flex-col w-full  xl:w-[50%] h-screen">
         <div className="mx-auto my-auto h-[400px] w-4/5">
           <p
             className="text-center font-bold text-[#FF3059] text-[24px]"
@@ -51,7 +51,7 @@ export default function Signin() {
           />
           <Input
             type="password"
-            label="password"
+            label="Password"
             placeholder="Enter your password"
             className="mt-4"
             style={jostFontStyle}

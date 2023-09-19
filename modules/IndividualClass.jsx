@@ -31,6 +31,7 @@ export default function IndividualClass() {
             // layout="fill"
             width={1024}
             // objectFit="cover"
+            className="object-cover"
             alt="history-home"
           />
         </div>

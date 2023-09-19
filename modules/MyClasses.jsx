@@ -22,6 +22,7 @@ import { LiaFacebookMessenger } from "react-icons/lia";
 import BottomNav from "../components/BottomNav";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Confetti from "react-confetti";
 // import { Link } from "@nextui-org/react";
 
 export default function MyClasses() {
@@ -111,9 +112,10 @@ export default function MyClasses() {
   };
 
   const handleFormSubmit = () => {
-    setClasses([...classes, newClass]);
+    setClasses([newClass, ...classes]);
     // setNewClass(initialClass);
     // closeModal();
+
     onOpenChange();
   };
   //   const classes = [
@@ -237,12 +239,8 @@ export default function MyClasses() {
 
       <div className="flex flex-wrap gap-4 justify-center mt-8 ">
         {classes.map((classInfo, index) => (
-          <Link href="/individualClass">
-            <Card
-              key={index}
-              className="max-w-[340px] p-2"
-              style={{ width: "340px" }}
-            >
+          <Link href="/individualClass" key={index}>
+            <Card className="max-w-[340px] p-2" style={{ width: "340px" }}>
               <CardHeader className="justify-between">
                 <div className="flex gap-5">
                   <div className="flex flex-col gap-1 items-start">
@@ -365,6 +363,10 @@ export default function MyClasses() {
                 <Button
                   color="danger"
                   onPress={handleFormSubmit}
+                  //   onPress={() => {
+                  //     handleFormSubmit();
+                  // setShowConfetti(true); // Show confetti when the button is pressed
+                  //   }}
                   className="w-full mt-3 font-bold"
                 >
                   Create Class
